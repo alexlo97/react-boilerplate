@@ -22,6 +22,10 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(cookiePaser());
 
+app.get("/", (req, res) => {
+    res.json({"hello": "test"})
+})
+
 // middleware
 // only users who are logged in and make changes
 app.get('/api/users/auth', auth, (req, res) => {
