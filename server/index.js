@@ -63,7 +63,7 @@ app.post('/api/users/login', (req, res) => {
                 loginSuccess: false,
                 message: "Auth failed, email not found"
             })
-        }
+        };
         // compare if password entered matches the one in database
         user.comparePassword(req.body.password, (err, isMatch) => {
             if(!isMatch) {
@@ -72,7 +72,7 @@ app.post('/api/users/login', (req, res) => {
                     message: "Wrong password"
                 })
             }
-        })
+        });
         // generate token
         user.generateToken((err, user) => {
             if(err) {
@@ -105,7 +105,7 @@ app.get("/api/users/logout", auth, (req, res) => {
     })
 })
 
-// port set by heroku. if not, set 5000
+// port set by heroku. if not, set to 5000
 const port = process.env.PORT || 5000
 
 //
